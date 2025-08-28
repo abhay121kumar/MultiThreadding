@@ -10,19 +10,23 @@ ull OddSum = 0;
 ull EvenSum = 0;
 
 void findEven(ull start, ull end){
+    cout<<"i am find even up --"<<endl;
     for(ull i=start;i<=end;++i){
         if((i&1) == 0){
             EvenSum+=i;
         }
     }
+    cout<<"i am find even down"<<endl;
 }
 
 void findOdd(ull start, ull end){
+    cout<<"i am find odd up --"<<endl;
     for(ull i=start;i<=end;++i){
         if((i&1) == 1){
             OddSum+=i;
         }
     }
+    cout<<"i am find odd down"<<endl;
 }
 
 int main(){
@@ -35,7 +39,7 @@ int main(){
     std::thread t2(findEven, start, end);
     t1.join();
     t2.join();
-    
+
     auto stopTime = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stopTime - startTime);
 
